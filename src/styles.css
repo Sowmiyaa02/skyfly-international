@@ -70,44 +70,126 @@ code {
 }
 
 /* Background animation styles */
-.bg-animation-wrapper {
+.bg-animation-container {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
 }
-.bg-animation-video {
+.bg-animation-container::before {
+  content: '';
   position: absolute;
   inset: 0;
-  width: 120%;
-  height: 120%;
-  left: 50%;
+  background: radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.18), transparent 24%),
+              radial-gradient(circle at 80% 18%, rgba(14, 165, 233, 0.14), transparent 20%),
+              radial-gradient(circle at 35% 80%, rgba(96, 165, 250, 0.10), transparent 26%);
+}
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.24;
+  filter: blur(32px);
+  animation: floatShape 18s ease-in-out infinite;
+}
+.shape-1 {
+  width: 220px;
+  height: 220px;
+  left: 10%;
+  top: 12%;
+  background: rgba(56, 189, 248, 0.42);
+  animation-duration: 20s;
+}
+.shape-2 {
+  width: 180px;
+  height: 180px;
+  left: 72%;
+  top: 8%;
+  background: rgba(14, 165, 233, 0.30);
+  animation-duration: 22s;
+}
+.shape-3 {
+  width: 260px;
+  height: 260px;
+  left: 24%;
   top: 50%;
-  transform: translate(-50%, -50%) scale(1.05);
-  object-fit: cover;
-  opacity: 0.48;
-  filter: saturate(1.25) brightness(1.25);
-  animation: bgFloat 16s ease-in-out infinite;
-  will-change: transform, opacity;
-  pointer-events: none;
+  background: rgba(56, 189, 248, 0.32);
+  animation-duration: 24s;
 }
-@keyframes bgFloat {
-  0%, 100% {
-    transform: translateY(-10px);
-  }
-  50% {
-    transform: translateY(10px);
-  }
+.shape-4 {
+  width: 140px;
+  height: 140px;
+  left: 82%;
+  top: 55%;
+  background: rgba(96, 165, 250, 0.28);
+  animation-duration: 16s;
 }
-body > *:not(.bg-animation-wrapper) {
+.shape-5 {
+  width: 200px;
+  height: 200px;
+  left: 48%;
+  top: 70%;
+  background: rgba(56, 189, 248, 0.22);
+  animation-duration: 18s;
+}
+.shape-6 {
+  width: 160px;
+  height: 160px;
+  left: 5%;
+  top: 70%;
+  background: rgba(14, 165, 233, 0.18);
+  animation-duration: 26s;
+}
+.bg-boom {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 2px solid rgba(96, 165, 250, 0.34);
+  box-shadow: 0 0 0 8px rgba(56, 189, 248, 0.08);
+  opacity: 0.18;
+  animation: boomPulse 6s ease-in-out infinite;
+}
+.boom-1 {
+  left: 62%;
+  top: 18%;
+  animation-delay: 0s;
+}
+.boom-2 {
+  left: 18%;
+  top: 38%;
+  animation-delay: 1.2s;
+}
+.boom-3 {
+  left: 74%;
+  top: 62%;
+  animation-delay: 2.4s;
+}
+@keyframes floatShape {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(10px, 18px, 0); }
+}
+@keyframes boomPulse {
+  0%, 100% { transform: scale(0.95); opacity: 0.16; }
+  25% { transform: scale(1.15); opacity: 0.30; }
+  50% { transform: scale(1.35); opacity: 0.08; }
+  75% { transform: scale(1.10); opacity: 0.24; }
+}
+body > *:not(.bg-animation-container) {
   position: relative;
   z-index: 1;
 }
 @media (max-width: 768px) {
-  .bg-animation-video {
-    opacity: 0.26;
-    animation-duration: 20s;
-    transform: translate(-50%, -52%) scale(1.1);
+  .bg-animation-container::before {
+    background: radial-gradient(circle at 20% 18%, rgba(56, 189, 248, 0.14), transparent 20%),
+                radial-gradient(circle at 78% 18%, rgba(14, 165, 233, 0.10), transparent 18%);
+  }
+  .bg-shape {
+    opacity: 0.18;
+    filter: blur(22px);
+  }
+  .bg-boom {
+    opacity: 0.12;
+    transform: scale(0.95);
   }
 }

@@ -33,16 +33,16 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="antialiased">
-        <div className="bg-animation-wrapper" aria-hidden="true">
-          <video
-            className="bg-animation-video"
-            src="/background-looping-animation.webm"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          />
+        <div className="bg-animation-container" aria-hidden="true">
+          <span className="bg-shape shape-1" />
+          <span className="bg-shape shape-2" />
+          <span className="bg-shape shape-3" />
+          <span className="bg-shape shape-4" />
+          <span className="bg-shape shape-5" />
+          <span className="bg-shape shape-6" />
+          <span className="bg-boom boom-1" />
+          <span className="bg-boom boom-2" />
+          <span className="bg-boom boom-3" />
         </div>
         {children}
         <Scripts />
