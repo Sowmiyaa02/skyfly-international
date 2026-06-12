@@ -83,8 +83,8 @@ code {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.18;
-  filter: saturate(1.03) blur(0px);
+  opacity: 0.24;
+  filter: saturate(1.05) blur(0px);
   animation: bgFloat 16s ease-in-out infinite;
   will-change: transform, opacity;
   pointer-events: none;
@@ -103,7 +103,8 @@ body > *:not(.bg-animation-wrapper) {
 }
 @media (max-width: 768px) {
   .bg-animation-video {
-    opacity: 0.08;
+    opacity: 0.12;
     animation-duration: 20s;
+    transform: translateY(-2px) scale(1.05);
   }
 }

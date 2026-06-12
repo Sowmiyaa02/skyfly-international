@@ -36,7 +36,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <div className="bg-animation-wrapper" aria-hidden="true">
           <video
             className="bg-animation-video"
-            src="/Background%20looping%20animation.webm"
+            src="/background-looping-animation.webm"
             autoPlay
             loop
             muted
