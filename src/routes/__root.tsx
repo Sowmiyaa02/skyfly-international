@@ -33,6 +33,17 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="antialiased">
+        <div className="bg-animation-wrapper" aria-hidden="true">
+          <video
+            className="bg-animation-video"
+            src="/Background%20looping%20animation.webm"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+          />
+        </div>
         {children}
         <Scripts />
       </body>

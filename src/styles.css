@@ -68,3 +68,42 @@ img {
 code {
   font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+/* Background animation styles */
+.bg-animation-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.bg-animation-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.18;
+  filter: saturate(1.03) blur(0px);
+  animation: bgFloat 16s ease-in-out infinite;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+@keyframes bgFloat {
+  0%, 100% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+body > *:not(.bg-animation-wrapper) {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .bg-animation-video {
+    opacity: 0.08;
+    animation-duration: 20s;
+  }
+}
