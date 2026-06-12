@@ -80,14 +80,14 @@ code {
 .bg-animation-video {
   position: absolute;
   inset: 0;
-  width: 110%;
-  height: 110%;
+  width: 120%;
+  height: 120%;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1.05);
   object-fit: cover;
-  opacity: 0.36;
-  filter: saturate(1.15) brightness(1.05);
+  opacity: 0.48;
+  filter: saturate(1.25) brightness(1.25);
   animation: bgFloat 16s ease-in-out infinite;
   will-change: transform, opacity;
   pointer-events: none;
@@ -106,8 +106,8 @@ body > *:not(.bg-animation-wrapper) {
 }
 @media (max-width: 768px) {
   .bg-animation-video {
-    opacity: 0.12;
+    opacity: 0.26;
     animation-duration: 20s;
-    transform: translateY(-2px) scale(1.05);
+    transform: translate(-50%, -52%) scale(1.1);
   }
 }
