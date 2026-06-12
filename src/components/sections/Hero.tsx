@@ -52,6 +52,23 @@ export default function Hero() {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/8 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-600/8 rounded-full blur-[100px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-400/4 rounded-full blur-[150px]" />
+        
+        {/* Animated globe background */}
+        <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
+          <motion.div
+            className="absolute inset-0 rounded-full"
+            style={{
+              background: 'radial-gradient(circle at 30% 30%, rgba(56,189,248,0.3), transparent 70%)',
+            }}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+          />
+          <motion.div
+            className="absolute inset-1/4 rounded-full border-2 border-cyan-500/20"
+            animate={{ rotate: -360 }}
+            transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
+          />
+        </div>
       </div>
 
       {/* World map SVG background */}

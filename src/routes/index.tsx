@@ -3,11 +3,18 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/sections/Hero'
 import TrustBar from '@/components/sections/TrustBar'
 import About from '@/components/sections/About'
+import DestinationFinder from '@/components/sections/DestinationFinder'
 import Stats from '@/components/sections/Stats'
+import ProcessTimeline from '@/components/sections/ProcessTimeline'
+import TrustCredibility from '@/components/sections/TrustCredibility'
 import Countries from '@/components/sections/Countries'
+import BasicRequirements from '@/components/sections/BasicRequirements'
 import Services from '@/components/sections/Services'
+import ProfileProcessing from '@/components/sections/ProfileProcessing'
 import Documents from '@/components/sections/Documents'
+import SkilledUnskilled from '@/components/sections/SkilledUnskilled'
 import Testimonials from '@/components/sections/Testimonials'
+import VisaFeeInfo from '@/components/sections/VisaFeeInfo'
 import FAQ from '@/components/sections/FAQ'
 import ConsultationCTA from '@/components/sections/ConsultationCTA'
 import Contact from '@/components/sections/Contact'
@@ -25,11 +32,18 @@ function SkyFlyHome() {
       <Hero />
       <TrustBar />
       <About />
+      <DestinationFinder />
       <Stats />
+      <ProcessTimeline />
+      <TrustCredibility />
       <Countries />
+      <BasicRequirements />
       <Services />
+      <ProfileProcessing />
       <Documents />
+      <SkilledUnskilled />
       <Testimonials />
+      <VisaFeeInfo />
       <FAQ />
       <ConsultationCTA />
       <Contact />
