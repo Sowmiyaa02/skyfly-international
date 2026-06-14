@@ -57,7 +57,7 @@ export default function About() {
 
         {/* Feature cards */}
         <div className="text-center mb-6">
-          <h3 className="text-2xl font-bold text-white mb-2">Why Clients Trust Us</h3>
+          <h3 id="why-clients-trust-us" className="text-2xl font-bold text-white mb-2">Why Clients Trust Us</h3>
           <p className="text-white/70 max-w-2xl mx-auto">Trusted, licensed, and client-first services that guide you through every step.</p>
         </div>
 

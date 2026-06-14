@@ -126,7 +126,7 @@ export default function Navbar() {
                           <h4 className="text-lg font-bold text-white mb-2">Quick Links</h4>
                           <div className="grid grid-cols-1 gap-2 text-sm">
                             <button onClick={() => scrollTo('#about')} className="text-white/70 hover:text-white text-left">About Overview</button>
-                            <button onClick={() => scrollTo('#trust')} className="text-white/70 hover:text-white text-left">Our Mission & Trust</button>
+                            <button onClick={() => scrollTo('#why-clients-trust-us')} className="text-white/70 hover:text-white text-left">Why Clients Trust Us</button>
                             <button onClick={() => scrollTo('#testimonials')} className="text-white/70 hover:text-white text-left">Success Stories</button>
                           </div>
                         </div>
