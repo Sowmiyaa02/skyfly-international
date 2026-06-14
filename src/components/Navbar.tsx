@@ -77,6 +77,7 @@ export default function Navbar() {
           {navLinks.map(link => {
             const key = link.href.replace('#','')
             const hasMega = link.label === 'About Us' || link.label === 'Services' || link.label === 'Success Stories' || link.label === 'FAQ'
+            const showCaret = link.label === 'About Us' || link.label === 'Services'
             return (
               <div
                 key={link.href}
@@ -96,7 +97,7 @@ export default function Navbar() {
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     {link.label}
-                    {hasMega && <span className="text-white/50">▼</span>}
+                    {showCaret && <span className="text-white/50">▼</span>}
                   </span>
                 </motion.button>
 
