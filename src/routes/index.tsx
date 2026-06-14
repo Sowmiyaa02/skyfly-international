@@ -3,7 +3,6 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/sections/Hero'
 import TrustBar from '@/components/sections/TrustBar'
 import About from '@/components/sections/About'
-import DestinationFinder from '@/components/sections/DestinationFinder'
 import Stats from '@/components/sections/Stats'
 import ProcessTimeline from '@/components/sections/ProcessTimeline'
 import TrustCredibility from '@/components/sections/TrustCredibility'
@@ -32,7 +31,6 @@ function SkyFlyHome() {
       <Hero />
       <TrustBar />
       <About />
-      <DestinationFinder />
       <Stats />
       <ProcessTimeline />
       <TrustCredibility />
