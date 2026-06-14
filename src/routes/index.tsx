@@ -7,7 +7,6 @@ import Stats from '@/components/sections/Stats'
 import ProcessTimeline from '@/components/sections/ProcessTimeline'
 import TrustCredibility from '@/components/sections/TrustCredibility'
 import Countries from '@/components/sections/Countries'
-import BasicRequirements from '@/components/sections/BasicRequirements'
 import Services from '@/components/sections/Services'
 import ProfileProcessing from '@/components/sections/ProfileProcessing'
 import Documents from '@/components/sections/Documents'
@@ -35,11 +34,10 @@ function SkyFlyHome() {
       <ProcessTimeline />
       <TrustCredibility />
       <Countries />
-      <BasicRequirements />
       <Services />
       <ProfileProcessing />
       <Documents />
-      <SkilledUnskilled />
+      
       <Testimonials />
       <VisaFeeInfo />
       <FAQ />

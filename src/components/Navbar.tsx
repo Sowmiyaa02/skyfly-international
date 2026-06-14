@@ -15,6 +15,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [openMenu, setOpenMenu] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,30 +72,114 @@ export default function Navbar() {
           </div>
         </motion.a>
 
-        {/* Desktop Nav */}
+        {/* Desktop Nav with Mega Menus */}
         <div className="hidden md:flex items-center gap-1">
-          {navLinks.map(link => (
-            <motion.button
-              key={link.href}
-              onClick={() => scrollTo(link.href)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 cursor-pointer ${
-                activeSection === link.href.replace('#','')
-                  ? 'text-cyan-400'
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
-              {activeSection === link.href.replace('#','') && (
-                <motion.div
-                  layoutId="nav-active"
-                  className="absolute inset-0 bg-cyan-500/10 rounded-lg border border-cyan-500/30"
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
-                />
-              )}
-              <span className="relative z-10">{link.label}</span>
-            </motion.button>
-          ))}
+          {navLinks.map(link => {
+            const key = link.href.replace('#','')
+            const hasMega = link.label === 'About Us' || link.label === 'Services' || link.label === 'Success Stories' || link.label === 'FAQ'
+            return (
+              <div
+                key={link.href}
+                onMouseEnter={() => setOpenMenu(hasMega ? key : null)}
+                onMouseLeave={() => setOpenMenu(null)}
+                className="relative"
+              >
+                <motion.button
+                  onClick={() => scrollTo(link.href)}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 cursor-pointer ${
+                    activeSection === key
+                      ? 'text-cyan-400'
+                      : 'text-white/70 hover:text-white'
+                  }`}
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    {link.label}
+                    {hasMega && <span className="text-white/50">▼</span>}
+                  </span>
+                </motion.button>
+
+                {/* Mega menu panel */}
+                {openMenu === key && hasMega && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.18 }}
+                    className="absolute left-0 top-full mt-3 w-[760px] bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-lg text-white z-40"
+                  >
+                    {/* About mega menu */}
+                    {link.label === 'About Us' && (
+                      <div className="grid grid-cols-2 gap-6">
+                        <div>
+                          <h4 className="text-lg font-bold text-white mb-2">Why Clients Trust Us</h4>
+                          <ul className="text-white/70 space-y-2">
+                            <li>Licensed & trusted consultancy with transparent processes.</li>
+                            <li>Global reach across 29+ countries.</li>
+                            <li>Expert team with proven track record.</li>
+                            <li>End-to-end, personalized client support.</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-bold text-white mb-2">Quick Links</h4>
+                          <div className="grid grid-cols-1 gap-2 text-sm">
+                            <button onClick={() => scrollTo('#about')} className="text-white/70 hover:text-white text-left">About Overview</button>
+                            <button onClick={() => scrollTo('#trust')} className="text-white/70 hover:text-white text-left">Our Mission & Trust</button>
+                            <button onClick={() => scrollTo('#testimonials')} className="text-white/70 hover:text-white text-left">Success Stories</button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Services mega menu */}
+                    {link.label === 'Services' && (
+                      <div className="grid grid-cols-3 gap-6">
+                        <div>
+                          <h4 className="text-sm text-cyan-300 font-semibold mb-2">Our Visa Process</h4>
+                          <p className="text-white/70 text-sm">Step-by-step guidance from initial assessment to visa submission and follow-up.</p>
+                        </div>
+                        <div>
+                          <h4 className="text-sm text-cyan-300 font-semibold mb-2">Professional Documentation & Guidance</h4>
+                          <p className="text-white/70 text-sm">Document checklist, verification, formatting and application-ready preparation.</p>
+                        </div>
+                        <div>
+                          <h4 className="text-sm text-cyan-300 font-semibold mb-2">Profile Processing</h4>
+                          <p className="text-white/70 text-sm">Profile evaluation, credential checks and eligibility advisory.</p>
+                        </div>
+                        <div>
+                          <h4 className="text-sm text-cyan-300 font-semibold mb-2">How It Works</h4>
+                          <p className="text-white/70 text-sm">Free consultation → profile review → documentation → submission → post-support.</p>
+                        </div>
+                        <div>
+                          <h4 className="text-sm text-cyan-300 font-semibold mb-2">What You Provide & What We Provide</h4>
+                          <p className="text-white/70 text-sm">Clear split of client responsibilities and our deliverables for smooth processing.</p>
+                        </div>
+                        <div className="flex items-center">
+                          <a href="#contact" onClick={(e)=>{e.preventDefault(); scrollTo('#contact')}} className="ml-auto bg-cyan-500/20 border border-cyan-500/30 px-4 py-2 rounded-lg text-sm text-cyan-300">Get Consultation</a>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Placeholder panels for others */}
+                    {link.label === 'Success Stories' && (
+                      <div>
+                        <h4 className="text-lg font-bold text-white mb-2">Success Stories</h4>
+                        <p className="text-white/70">Client journeys and approvals showcasing our track record.</p>
+                      </div>
+                    )}
+
+                    {link.label === 'FAQ' && (
+                      <div>
+                        <h4 className="text-lg font-bold text-white mb-2">Frequently Asked Questions</h4>
+                        <p className="text-white/70">Quick answers to common visa, documentation and processing queries.</p>
+                      </div>
+                    )}
+                  </motion.div>
+                )}
+              </div>
+            )
+          })}
         </div>
 
         {/* CTA Button */}

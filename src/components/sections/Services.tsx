@@ -20,17 +20,39 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-8"
         >
-          <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full px-4 py-1.5 mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-            <span className="text-cyan-400 text-xs font-medium tracking-widest uppercase">Our Services</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-3">
-            Professional Documentation
-            <span className="block bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">& Guidance</span>
-          </h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-3">Services</h2>
+          <p className="text-white/70 max-w-3xl mx-auto">Comprehensive visa and immigration services designed for clear outcomes.</p>
         </motion.div>
+
+        {/* Services subsections */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div id="our-visa-process" className="bg-white/[0.02] border border-white/8 rounded-xl p-6">
+            <h3 className="text-lg font-bold text-white mb-2">Our Visa Process</h3>
+            <p className="text-white/70">Assessment → Documentation → Application Submission → Follow-up & Support.</p>
+          </div>
+
+          <div id="documentation" className="bg-white/[0.02] border border-white/8 rounded-xl p-6">
+            <h3 className="text-lg font-bold text-white mb-2">Professional Documentation & Guidance</h3>
+            <p className="text-white/70">We prepare, verify and format documents to meet destination-specific requirements.</p>
+          </div>
+
+          <div id="profile-processing" className="bg-white/[0.02] border border-white/8 rounded-xl p-6">
+            <h3 className="text-lg font-bold text-white mb-2">Profile Processing</h3>
+            <p className="text-white/70">Eligibility checks, credential verification and profile strengthening recommendations.</p>
+          </div>
+
+          <div id="how-it-works" className="bg-white/[0.02] border border-white/8 rounded-xl p-6">
+            <h3 className="text-lg font-bold text-white mb-2">How It Works</h3>
+            <p className="text-white/70">Start with a free consultation and we’ll guide you through the rest.</p>
+          </div>
+        </div>
+
+        <div id="what-we-provide" className="mb-10 bg-white/[0.02] border border-white/8 rounded-xl p-6">
+          <h3 className="text-lg font-bold text-white mb-2">What You Provide & What We Provide</h3>
+          <p className="text-white/70">A clear split between client-supplied documents and our service deliverables to ensure transparency and speed.</p>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {services.map((s, i) => (

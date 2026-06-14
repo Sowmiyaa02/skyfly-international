@@ -56,6 +56,11 @@ export default function About() {
         </motion.div>
 
         {/* Feature cards */}
+        <div className="text-center mb-6">
+          <h3 className="text-2xl font-bold text-white mb-2">Why Clients Trust Us</h3>
+          <p className="text-white/70 max-w-2xl mx-auto">Trusted, licensed, and client-first services that guide you through every step.</p>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {features.map((f, i) => <GlassCard key={f.title} {...f} index={i} />)}
         </div>
